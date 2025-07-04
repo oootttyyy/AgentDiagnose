@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles matching the original dashboard */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Container styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header styles */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background-color: #f5f5f5;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.header.hidden {
+    transform: translateY(-100%);
+    height: 0;
+    padding: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #2c2c2c;
+    margin-bottom: 15px;
+}
+
+/* Tab styles */
+.tabs-container {
+    margin-bottom: 40px;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 3px solid #333;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    background: none;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+}
+
+.tab.active {
+    color: #333;
+    border-bottom: 3px solid #333;
+}
+
+.tab:hover {
+    color: #333;
+}
+
+.tab-content {
+    display: none;
+    min-height: 100vh;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Metric card styles */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.metric-card {
+    background: white;
+    border: 3px solid #333;
+    border-radius: 0;
+    padding: 60px 40px;
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metric-number {
+    font-size: 72px;
+    font-weight: 900;
+    color: #333;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.metric-label {
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Trajectory styles */
+.trajectory-list {
+    background: white;
+    border: 3px solid #333;
+    border-radius: 0;
+    padding: 30px;
+    min-height: 600px;
+}
+
+.trajectory-item {
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trajectory-item:last-child {
+    border-bottom: none;
+}
+
+.trajectory-id {
+    font-weight: 600;
+    color: #333;
+}
+
+.trajectory-objective {
+    color: #666;
+    font-size: 14px;
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.trajectory-score {
+    font-weight: 600;
+    color: #333;
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Loading and error styles */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 18px;
+}
+
+.error {
+    background: #ffe6e6;
+    color: #d32f2f;
+    padding: 20px;
+    border: 2px solid #d32f2f;
+    text-align: center;
+}
+
+/* Utility styles */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 4px;
+    background-color: #6c757d;
+    color: white;
+}
+
+.target-line-highlight {
+    background-color: #fff3cd !important;
+    border-left: 4px solid #ffc107 !important;
+}
+
+/* Clean and consistent Plotly hover tooltip styling */
+:global(.plotly .hoverlayer .hovertext) {
+    background: white !important;
+    border: 1px solid #ddd !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    padding: 10px !important;
+    font-family: system-ui, -apple-system, sans-serif !important;
+}
+
+:global(.plotly .hoverlayer .hovertext path) {
+    fill: white !important;
+    stroke: #ddd !important;
+    stroke-width: 1px !important;
+}
+
+:global(.plotly .hoverlayer .hovertext text) {
+    font-family: system-ui, -apple-system, sans-serif !important;
+    fill: #333 !important;
+    font-size: 13px !important;
+}
+
+:global(.plotly .hoverlayer .hovertext text tspan:first-child) {
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    fill: #1976d2 !important;
+}
+
+:global(.plotly .hoverlayer .hovertext text tspan:not(:first-child)) {
+    font-size: 12px !important;
+    fill: #666 !important;
+} 
